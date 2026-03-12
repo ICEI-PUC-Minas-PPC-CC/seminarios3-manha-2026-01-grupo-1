@@ -2,9 +2,9 @@
 
 > **Status:**  (adicione um "x" para completar cada nível)
 
-- [x] Visualizado
+- [ ] Visualizado
 - [ ] Pendente
-- [ ] Enviado ao professor
+- [x] Enviado ao professor
 - [ ] Aprovado  
 
 > **Versão do termo .docx:** [baixar na atividade do Canvas]
@@ -15,10 +15,10 @@
 
 | Campo | Informação |
 | ------- | ----------- |
-| Nome do Grupo | |
-| Integrantes | |
-| E-mail de contato | |
-| Telefone de contato | |
+| Nome do Grupo | Comp Studios |
+| Integrantes | Adriano Azevedo Naldoni, João Pedro Tardelli Anicezio, Lucas Lopes Ronzelli Murback, Raphael Leite Emboaba, Sthefano Moura Pompeu, Tarek Villas Boas Salah |
+| E-mail de contato | lucas.murback@gmail.com ou raphael599999@gmail.com ou joaotardelli11@gmail.com |
+| Telefone de contato | (35) 99884-0409 (35) 98898-6387 (19) 99173-2790 (35) 999858-6600 (35) 99804-4300 (35) 99990-2261 |
 
 ## 2. Dados da Comunidade / Instituição Parceira
 
