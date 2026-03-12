@@ -1,7 +1,7 @@
 # 06 — Registro de Contatos com a Comunidade
 
-> **Grupo:** *(preencher)*  
-> **Comunidade:** *(preencher)*
+> **Grupo:** *Comp Studios - Adriano Azevedo Naldoni, João Pedro Tardelli Anicezio, Lucas Lopes Ronzelli Murback, Raphael Leite Emboaba, Sthefano Moura Pompeu, Tarek Villas Boas Salah*  
+> **Comunidade:** *Tarso de Coimbra*
 
 ---
 
@@ -16,6 +16,24 @@
 
 | Campo | Informação |
 | ------- | ----------- |
+| Data | 06/03/2026 |
+| Forma de contato | *Online - Teams* |
+| Participantes do grupo | Nesta reunião, nenhum conseguiu participar, apenas vimos a gravação do professor |
+| Participantes da comunidade | Representante Tarso de Coimbra |
+| Objetivo do contato | Levantar Demandas da Instituição |
+
+**Resumo do que foi tratado:**
+Quais os softwares necessários que ajudariam a Instituição
+
+**Encaminhamentos:**
+-----------------
+
+---
+
+### Contato #2
+
+| Campo | Informação |
+| ------- | ----------- |
 | Data | |
 | Forma de contato | *(Presencial / Online / E-mail / Telefone / WhatsApp)* |
 | Participantes do grupo | |
@@ -27,22 +45,6 @@
 
 **Encaminhamentos:**
 (O que ficou combinado para a próxima interação?)
-
----
-
-### Contato #2
-
-| Campo | Informação |
-| ------- | ----------- |
-| Data | |
-| Forma de contato | |
-| Participantes do grupo | |
-| Participantes da comunidade | |
-| Objetivo do contato | |
-
-**Resumo do que foi tratado:**
-
-**Encaminhamentos:**
 
 ---
 
