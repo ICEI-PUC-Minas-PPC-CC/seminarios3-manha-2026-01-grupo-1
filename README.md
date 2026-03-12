@@ -10,10 +10,10 @@
 
 | Campo | Informação |
 | ------- | ----------- |
-| **Nome do Grupo** | *(preencher)* |
-| **Integrantes** | *(listar todos)* |
-| **E-mail de contato** | *(preencher)* |
-| **Comunidade parceira** | *(preencher)* |
+| **Nome do Grupo** | Comp Studios |
+| **Integrantes** | Adriano Azevedo Naldoni, João Pedro Tardelli Anicezio, Lucas Lopes Ronzelli Murback, Raphael Leite Emboaba, Sthefano Moura Pompeu, Tarek Villas Boas Salah|
+| **E-mail de contato** | raphael599999@gmail.com ou joaotardelli11@gmail.com ou lucas.murback@gmail.com |
+| **Comunidade parceira** | Tarso de Coimbra |
 
 ---
 
