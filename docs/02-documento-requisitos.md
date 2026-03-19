@@ -1,14 +1,16 @@
 # 02 — Documento de Requisitos do Software
 
-> **Grupo:** *(preencher)*  
-> **Aplicação:** *(preencher)*  
-> **Comunidade:** *(preencher)*
+> **Grupo:** Comp Studios
+> **Aplicação:** Jogo de simulação de cidade  
+> **Comunidade:** Tarso de Coimbra
 
 ---
 
 ## 1. Visão Geral
 
-(Descreva em poucas frases o que é a aplicação, para quem ela é destinada e qual problema ela resolve.)
+Aplicação que o jogador será o prefeito de Poços de Caldas e tomará decisões para melhorar a cidade, ensinando virtudes e conceitos positivos para os jogadores.
+Ela é destinada para os alunos do instituto Tarso de Coimbra.
+Ajuda no desenvolvimento intelectual e no processo de tomada de decisões de forma virtuosa.
 
 ## 2. Público-Alvo
 
