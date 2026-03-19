@@ -16,10 +16,10 @@ Ajuda no desenvolvimento intelectual e no processo de tomada de decisões de for
 
 | Campo | Informação |
 | ------- | ----------- |
-| Perfil dos usuários | |
-| Faixa etária | |
-| Necessidades de acessibilidade | |
-| Nível de familiaridade com tecnologia | |
+| Perfil dos usuários | Pessoas da Tarso de Coimbra com algum tipo de deficiencia ou problemas de acessibilidade. |
+| Faixa etária | 14+ |
+| Necessidades de acessibilidade | Deficiência auditiva ou visual - Interface intuitiva, visual, baixa complexidade |
+| Nível de familiaridade com tecnologia | Necessita um baixo nivel de familiaridade com a tecnologia|
 
 > **Lembrete (Tarso de Coimbra):** Os usuários podem ter deficiência auditiva/surdez. A interface deve ser **visual, intuitiva e de baixa complexidade**. Priorize elementos visuais (imagens, ícones, cores) sobre texto extenso.
 
@@ -45,11 +45,11 @@ Ajuda no desenvolvimento intelectual e no processo de tomada de decisões de for
 
 ## 5. Requisitos de Acessibilidade
 
-- [ ] Interface predominantemente visual (ícones, cores, imagens)
-- [ ] Textos curtos e objetivos
-- [ ] Botões grandes e identificáveis
-- [ ] Contraste adequado de cores
-- [ ] Compatível com Libras (se aplicável: vídeos, sinais, glossário)
+- [X] Interface predominantemente visual (ícones, cores, imagens)
+- [X] Textos curtos e objetivos
+- [X] Botões grandes e identificáveis
+- [X] Contraste adequado de cores
+- [X] Compatível com Libras (se aplicável: vídeos, sinais, glossário)
 - [ ] Sem dependência de áudio para funcionalidades essenciais
 - [ ] Outro: *(especificar)*
 
@@ -57,11 +57,11 @@ Ajuda no desenvolvimento intelectual e no processo de tomada de decisões de for
 
 | Componente | Tecnologia |
 | ----------- | ----------- |
-| Front-end | |
-| Back-end (se houver) | |
-| Banco de dados (se houver) | |
-| Hospedagem | |
-| Outras ferramentas | |
+| Front-end | JS(React), CSS, HTML |
+| Back-end (se houver) | Python(Django), Talvez JS ou Java |
+| Banco de dados (se houver) | Acho que não vai precisar, mas se necessário vamos usar MySQL |
+| Hospedagem | GitHub Pages |
+| Outras ferramentas |  |
 
 ## 7. Protótipo / Wireframes
 
