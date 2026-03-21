@@ -21,17 +21,17 @@
 | Semana | Período (dd/MM à dd/MM) | Atividade planejada | Responsável | Status |
 | :------: | --------- | -------------------- | -----------: | :------: |
 | 1 | 18/02 à 12/03 | Formação do grupo | Todos | Feito |
-| 2 | 18/02 à 12/03 | Contato com comunidade e Levantamento de demandas | | Feito |
-| 3 | 13/03 à 21/03 | Definição de requisitos | | Feito |
-| 4 | 13/03 à 21/03 | Prototipação / wireframes | | Feito |
-| 5 | 22/03 à 16/05 | Desenvolvimento — Sprint 1 | | não iniciado |
-| 6 | 22/03 à 16/05 | Desenvolvimento — Sprint 1 | | não iniciado |
-| 7 | 22/03 à 16/05 | Validação com a comunidade | | não iniciado |
-| 8 | 22/03 à 16/05 | Desenvolvimento — Sprint 2 | | não iniciado |
-| 9 | 22/03 à 16/05 | Desenvolvimento — Sprint 2 | | não iniciado |
-| 10 | 22/03 à 16/05 | Testes e ajustes | | não iniciado |
-| 11 | 22/03 à 16/05 | Deploy / hospedagem | | não iniciado |
-| 12 | 17/05 à 06/06 | Validação final com a comunidade | | não iniciado |
+| 2 | 18/02 à 12/03 | Contato com comunidade e Levantamento de demandas | Todos | Feito |
+| 3 | 13/03 à 21/03 | Definição de requisitos | Todos | Feito |
+| 4 | 13/03 à 21/03 | Prototipação / wireframes | Todos | Feito |
+| 5 | 22/03 à 16/05 | Desenvolvimento — Sprint 1 | Todos | não iniciado |
+| 6 | 22/03 à 16/05 | Desenvolvimento — Sprint 1 | Todos | não iniciado |
+| 7 | 22/03 à 16/05 | Validação com a comunidade | Todos | não iniciado |
+| 8 | 22/03 à 16/05 | Desenvolvimento — Sprint 2 | Todos | não iniciado |
+| 9 | 22/03 à 16/05 | Desenvolvimento — Sprint 2 | Todos | não iniciado |
+| 10 | 22/03 à 16/05 | Testes e ajustes | Todos | não iniciado |
+| 11 | 22/03 à 16/05 | Deploy / hospedagem | Todos | não iniciado |
+| 12 | 17/05 à 06/06 | Validação final com a comunidade | Todos | não iniciado |
 | 13 | 17/05 à 06/06 | **Entrega presencial** | Todos | não iniciado |
 | 14 | 07/06 à 13/06 | Preenchimento dos relatórios APC | Todos | não iniciado |
 
