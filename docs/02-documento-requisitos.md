@@ -69,11 +69,11 @@ Ajuda no desenvolvimento intelectual e no processo de tomada de decisões de for
 
 ## 8. Escopo Mínimo Viável (MVP)
 
-|Hospedagem WEB|
-|Jogo Funcionando|
-|Telas com acessibilidade|
+| Hospedagem WEB |
+| Jogo Funcionando |
+| Telas com acessibilidade |
 
 ## 9. Funcionalidades Desejáveis (se houver tempo)
 
-|Aplicativo pro celular|
-|Ranking Online das Melhores Cidades|
+| Aplicativo pro celular |
+| Ranking Online das Melhores Cidades |
