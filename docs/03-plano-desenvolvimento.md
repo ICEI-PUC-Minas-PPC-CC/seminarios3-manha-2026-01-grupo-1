@@ -75,8 +75,8 @@ Será hospedada no GitHub Pages - criaremos um repositório e definiremos a bran
 | ------- | :------------: | :-------: | ---------- |
 | Atraso no cronograma | baixa | alto | desenvolvimento com antecedência do prazo |
 | Dificuldade técnica inesperada | média | alto | estudar e usar IAs |
-| Comunidade indisponível para reuniões | baixo | muito alto | definição dos horários com antecedência |
-| Problemas de infraestrutura no dia da entrega | baixo | extremamente alto | testar com antecedência no local |
+| Comunidade indisponível para reuniões | baixa | muito alto | definição dos horários com antecedência |
+| Problemas de infraestrutura no dia da entrega | baixa | extremamente alto | testar com antecedência no local |
 
 ## 6. Comunicação do Grupo
 
