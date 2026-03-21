@@ -27,10 +27,10 @@ Ajuda no desenvolvimento intelectual e no processo de tomada de decisões de for
 
 | ID | Requisito | Prioridade | Origem da demanda |
 | ---- | ---------- | :----------: | ------------------ |
-| RF01 | | *(Alta/Média/Baixa)* | *(Reunião com a comunidade em DD/MM)* |
-| RF02 | | | |
-| RF03 | | | |
-| RF04 | | | |
+| RF01 |Apelo visual | *Alta* | *Reunião com a Tarso de Coimbra* |
+| RF02 |Disponibilidade WEB |*Alta* |*Reunião com a Tarso de Coimbra* |
+| RF03 |Alertas visuais substituindo notificações sonoras |*Alta* |*Reunião com a Tarso de Coimbra* |
+| RF04 |Sistema baseado em texto e imagens |*Alta* |*Reunião com a Tarso de Coimbra* |
 | RF05 | | | |
 
 ## 4. Requisitos Não Funcionais
