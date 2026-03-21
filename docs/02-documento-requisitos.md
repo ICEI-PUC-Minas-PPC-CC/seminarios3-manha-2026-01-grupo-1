@@ -69,13 +69,11 @@ Ajuda no desenvolvimento intelectual e no processo de tomada de decisões de for
 
 ## 8. Escopo Mínimo Viável (MVP)
 
-(Quais funcionalidades compõem a versão mínima que pode ser entregue à comunidade?)
-
-- [ ] *(Funcionalidade 1)*
-- [ ] *(Funcionalidade 2)*
-- [ ] *(Funcionalidade 3)*
+Hospedagem WEB
+Jogo Funcionando
+Telas com acessibilidade
 
 ## 9. Funcionalidades Desejáveis (se houver tempo)
 
-- *(Funcionalidade extra 1)*
-- *(Funcionalidade extra 2)*
+Aplicativo pro celular
+Ranking Online das Melhores Cidades
