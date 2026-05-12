@@ -1,0 +1,5 @@
+Django
+PyYAML
+requests
+string-color
+mysql-connector-python
