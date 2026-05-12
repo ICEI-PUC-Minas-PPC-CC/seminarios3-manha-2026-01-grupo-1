@@ -1,2 +1,0 @@
-# TrabalhoSemin-rios
-TrabalhoDeSeminários3DaFaculdadePUCMinas
