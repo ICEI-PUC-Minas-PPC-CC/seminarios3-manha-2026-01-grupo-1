@@ -71,3 +71,27 @@ const FASE_1 = [
   },
 ];
 
+/* ── FASE 2 — Saúde Pública ── */
+const FASE_2 = [
+  {
+    id: 4,
+    fase: 2,
+    texto: "Está havendo um surto de gripe na cidade, o que devemos fazer?",
+    opcoes: [
+      {
+        titulo: "Comprar vacinas",
+        custo: 250,
+        exp: 1500,
+        feedback: "Ótima decisão! A vacinação controlou o surto rapidamente.",
+        melhor: true,
+      },
+      {
+        titulo: "Ignorar",
+        custo: 0,
+        exp: -3000,
+        feedback: "Péssima escolha! O surto se alastrou e a cidade sofreu muito.",
+        melhor: false,
+      },
+    ],
+  },
+];
