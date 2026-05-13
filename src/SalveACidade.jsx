@@ -96,9 +96,29 @@ const FASE_2 = [
   },
 ];
 
-/* ── FASE 3 — Adicione aqui as perguntas da Fase 3 ── */
+/* ── FASE 3 — Turismo e Desenvolvimento ── */
 const FASE_3 = [
-  // { id: 7, fase: 3, texto: "...", opcoes: [...] },
+  {
+    id: 5,
+    fase: 3,
+    texto: "O turismo da cidade está crescendo, o que devemos fazer?",
+    opcoes: [
+      {
+        titulo: "Ampliar a quantidade\nde pontos turisticos",
+        custo: 200,
+        exp: 1200,
+        feedback: "Bom começo! Mais pontos turísticos atraem visitantes.",
+        melhor: false,
+      },
+      {
+        titulo: "Melhorar a\ninfraestrutuda da cidade",
+        custo: 300,
+        exp: 2000,
+        feedback: "Excelente! Uma cidade bem estruturada atrai muito mais turistas.",
+        melhor: true,
+      },
+    ],
+  },
 ];
 
 /* ── Lista completa usada pelo jogo (não alterar) ── */
