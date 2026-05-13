@@ -121,8 +121,83 @@ const FASE_3 = [
   },
 ];
 
+/* ── FASE 4 — Gestão de Resíduos ── */
+const FASE_4 = [
+  {
+    id: 6,
+    fase: 4,
+    texto: "O lixão da cidade tá\ntransbordando e o cheiro\nestá chegando no centro.",
+    opcoes: [
+      {
+        titulo: "Construir usina de\nreciclagem",
+        custo: 500,
+        exp: 2000,
+        feedback: "Excelente! A usina de reciclagem resolve o problema de forma sustentável e gera empregos!",
+        melhor: true,
+      },
+      {
+        titulo: "Cavar um novo aterro\nsanitário",
+        custo: 150,
+        exp: -500,
+        feedback: "Solução temporária. O novo aterro vai transbordar novamente em poucos anos e prejudica o meio ambiente.",
+        melhor: false,
+      },
+    ],
+  },
+];
+
+/* ── FASE 5 — Educação Digital ── */
+const FASE_5 = [
+  {
+    id: 7,
+    fase: 5,
+    texto: "As escolas municipais tão\ncom computadores que\nestão muito ultrapassados,\no que devemos fazer?",
+    opcoes: [
+      {
+        titulo: "Comprar notebooks\nnovos pra geral",
+        custo: 600,
+        exp: 2500,
+        feedback: "Excelente! Alunos com equipamentos modernos aprendem muito mais e se preparam para o mercado de trabalho!",
+        melhor: true,
+      },
+      {
+        titulo: "Dar curso de\ninformática teórica",
+        custo: 100,
+        exp: 500,
+        feedback: "Pouco eficaz. Sem prática nos computadores, o aprendizado fica bem limitado.",
+        melhor: false,
+      },
+    ],
+  },
+];
+
+/* ── FASE 6 — Segurança Pública ── */
+const FASE_6 = [
+  {
+    id: 8,
+    fase: 6,
+    texto: "A criminalidade tá\naumentando nos bairros\nda periferia, o que a gente\nfaz?",
+    opcoes: [
+      {
+        titulo: "Contratar mais\nguardas",
+        custo: 400,
+        exp: 1500,
+        feedback: "Ajuda no curto prazo, mas sem monitoramento inteligente os recursos são desperdiçados.",
+        melhor: false,
+      },
+      {
+        titulo: "Instalar câmeras de\nmonitoramento",
+        custo: 200,
+        exp: 800,
+        feedback: "Boa escolha! As câmeras inibem crimes e ajudam a identificar criminosos com muito menos custo.",
+        melhor: true,
+      },
+    ],
+  },
+];
+
 /* ── Lista completa usada pelo jogo (não alterar) ── */
-const PERGUNTAS = [...FASE_1, ...FASE_2, ...FASE_3];
+const PERGUNTAS = [...FASE_1, ...FASE_2, ...FASE_3, ...FASE_4, ...FASE_5, ...FASE_6];
 
 /* ─────────────────────────────────────────────
    ÍCONES SVG PIXEL ART
@@ -152,6 +227,43 @@ const ExpIcon = ({ size = 42 }) => (
   </svg>
 );
 
+/* Ícone de lixo / resíduos pixel art para a Fase 4 */
+const TrashIcon = ({ size = 48 }) => (
+  <svg width={size} height={size} viewBox="0 0 32 32" style={{ imageRendering: "pixelated" }}>
+    {/* tampa */}
+    <rect x="4" y="4" width="24" height="4" fill="#5a8a3c" />
+    <rect x="6" y="2" width="20" height="3" fill="#76b050" />
+    <rect x="12" y="0" width="8" height="3" fill="#5a8a3c" />
+    {/* corpo */}
+    <rect x="6" y="8" width="20" height="20" fill="#76b050" />
+    <rect x="8" y="10" width="16" height="16" fill="#5a8a3c" />
+    {/* riscas */}
+    <rect x="10" y="10" width="3" height="14" fill="#76b050" />
+    <rect x="15" y="10" width="3" height="14" fill="#76b050" />
+    <rect x="20" y="10" width="3" height="14" fill="#76b050" />
+    {/* rodas */}
+    <rect x="8" y="28" width="5" height="4" fill="#333" />
+    <rect x="19" y="28" width="5" height="4" fill="#333" />
+  </svg>
+);
+
+/* Símbolo de reciclagem pixel art */
+const RecycleIcon = ({ size = 48 }) => (
+  <svg width={size} height={size} viewBox="0 0 32 32" style={{ imageRendering: "pixelated" }}>
+    <rect x="14" y="2" width="4" height="6" fill="#39c95a" />
+    <rect x="10" y="6" width="12" height="4" fill="#39c95a" />
+    <rect x="6" y="10" width="6" height="4" fill="#39c95a" />
+    <rect x="20" y="10" width="6" height="4" fill="#39c95a" />
+    <rect x="4" y="14" width="8" height="4" fill="#39c95a" />
+    <rect x="20" y="14" width="8" height="4" fill="#39c95a" />
+    <rect x="6" y="18" width="6" height="4" fill="#39c95a" />
+    <rect x="20" y="18" width="6" height="4" fill="#39c95a" />
+    <rect x="10" y="22" width="12" height="4" fill="#39c95a" />
+    <rect x="14" y="24" width="4" height="6" fill="#39c95a" />
+    <rect x="13" y="12" width="6" height="8" fill="#27a341" />
+  </svg>
+);
+
 /* ─────────────────────────────────────────────
    COMPONENTES DE CENA
 ───────────────────────────────────────────── */
@@ -175,6 +287,24 @@ const Tree = ({ className }) => (
     <div className="leaf leaf2" />
     <div className="leaf leaf3" />
     <div className="leaf leaf4" />
+  </div>
+);
+
+/* Cena especial da Fase 4: lixão com fumaça */
+const LixaoScene = () => (
+  <div className="lixao-scene">
+    {/* pilha de lixo */}
+    <div className="lixao-pile" />
+    <div className="lixao-pile lixao-pile2" />
+    <div className="lixao-pile lixao-pile3" />
+    {/* fumaça animada */}
+    <div className="smoke smoke1" />
+    <div className="smoke smoke2" />
+    <div className="smoke smoke3" />
+    {/* sacolas de lixo */}
+    <div className="trash-bag bag1" />
+    <div className="trash-bag bag2" />
+    <div className="trash-bag bag3" />
   </div>
 );
 
@@ -217,7 +347,7 @@ const HUD = ({ coins, exp }) => (
   </>
 );
 
-const Cenario = () => (
+const Cenario = ({ fase }) => (
   <>
     <Cloud className="cloud-left" />
     <Cloud className="cloud-center" />
@@ -228,9 +358,37 @@ const Cenario = () => (
     <Building className="building-right-2" windows={11} door />
     <Tree className="tree-left" />
     <Tree className="tree-right" />
-    <section className="ground" />
+    <section className={`ground ${fase === 4 ? "ground-dirty" : ""}`} />
+    {fase === 4 && <LixaoScene />}
     <Person />
   </>
+);
+
+const FASE_NOMES = {
+  1: "Infraestrutura Urbana",
+  2: "Saúde Pública",
+  3: "Turismo e Desenvolvimento",
+  4: "Gestão de Resíduos",
+  5: "Educação Digital",
+  6: "Segurança Pública",
+};
+
+/* Indicador de fase com título animado */
+const FaseIndicador = ({ fase, total = 6 }) => (
+  <div className="fase-indicator">
+    <div className="fase-titulo-wrap">
+      <span className="fase-numero" key={fase}>Fase {fase}</span>
+      <span className="fase-nome" key={`nome-${fase}`}>{FASE_NOMES[fase]}</span>
+    </div>
+    <div className="fase-dots">
+      {Array.from({ length: total }).map((_, i) => (
+        <div
+          key={i}
+          className={`fase-dot ${i + 1 <= fase ? "fase-dot-active" : ""} ${i + 1 === fase ? "fase-dot-current" : ""}`}
+        />
+      ))}
+    </div>
+  </div>
 );
 
 /* ─────────────────────────────────────────────
@@ -238,7 +396,7 @@ const Cenario = () => (
 ───────────────────────────────────────────── */
 const TelaInicial = ({ onIniciar, fase }) => (
   <main className="game-screen">
-    <Cenario />
+    <Cenario fase={fase} />
     <h1>Salve a cidade</h1>
     <h2>Fase {fase}:</h2>
     <button className="start-button" type="button" onClick={onIniciar}>
@@ -248,57 +406,102 @@ const TelaInicial = ({ onIniciar, fase }) => (
   </main>
 );
 
-const TelaPergunta = ({ pergunta, coins, exp, onEscolha, escolhida }) => (
-  <main className="game-screen">
-    <Cenario />
-    <HUD coins={coins} exp={exp} />
+const TelaPergunta = ({ pergunta, coins, exp, onEscolha, escolhida }) => {
+  const isFase4 = pergunta.fase === 4;
+  const isFase5 = pergunta.fase === 5;
+  const isFase6 = pergunta.fase === 6;
+  const extraClass = isFase4 ? "game-screen-fase4" : isFase5 ? "game-screen-fase5" : isFase6 ? "game-screen-fase6" : "";
+  return (
+    <main className={`game-screen ${extraClass}`}>
+      <Cenario fase={pergunta.fase} />
+      <HUD coins={coins} exp={exp} />
+      <FaseIndicador fase={pergunta.fase} />
 
-    <div className="question-box">
-      {pergunta.texto.split("\n").map((linha, i) => (
-        <span key={i}>{linha}{i < pergunta.texto.split("\n").length - 1 && <br />}</span>
-      ))}
-    </div>
-
-    <div className="options-row">
-      {pergunta.opcoes.map((op, i) => (
-        <button
-          key={i}
-          className={`option-card ${escolhida === i ? "chosen" : ""} ${escolhida !== null && op.melhor ? "correct" : ""}`}
-          onClick={() => escolhida === null && onEscolha(i)}
-          type="button"
-          disabled={escolhida !== null}
-        >
-          <p className="option-title">
-            {op.titulo.split("\n").map((l, j) => (
-              <span key={j}>{l}{j < op.titulo.split("\n").length - 1 && <br />}</span>
-            ))}
-          </p>
-          <div className="option-badges">
-            <span className="badge badge-coin">
-              <CoinIcon size={22} />
-              R${op.custo}
-            </span>
-            <span className="badge badge-exp">
-              <ExpIcon size={22} />
-              {op.exp >= 0 ? `+${op.exp}` : op.exp}
-            </span>
+      <div className={`question-box ${isFase4 ? "question-box-fase4" : ""} ${isFase5 ? "question-box-fase5" : ""} ${isFase6 ? "question-box-fase6" : ""}`}>
+        {isFase4 && (
+          <div className="fase4-icon-row">
+            <TrashIcon size={42} />
+            <span className="fase4-badge">⚠️ Alerta Ambiental</span>
+            <TrashIcon size={42} />
           </div>
-        </button>
-      ))}
-    </div>
-
-    {escolhida !== null && (
-      <div className="feedback-bar">
-        <span className="feedback-emoji">{pergunta.opcoes[escolhida].melhor ? "✅" : "⚠️"}</span>
-        <span>{pergunta.opcoes[escolhida].feedback}</span>
+        )}
+        {isFase5 && (
+          <div className="fase4-icon-row">
+            <span className="fase-badge-special">💻 Educação Digital</span>
+          </div>
+        )}
+        {isFase6 && (
+          <div className="fase4-icon-row">
+            <span className="fase-badge-special fase6-badge">🚨 Segurança Pública</span>
+          </div>
+        )}
+        {pergunta.texto.split("\n").map((linha, i) => (
+          <span key={i}>{linha}{i < pergunta.texto.split("\n").length - 1 && <br />}</span>
+        ))}
       </div>
-    )}
-  </main>
-);
+
+      <div className="options-row">
+        {pergunta.opcoes.map((op, i) => (
+          <button
+            key={i}
+            className={`option-card
+              ${escolhida === i ? "chosen" : ""}
+              ${escolhida !== null && op.melhor ? "correct" : ""}
+              ${isFase4 && i === 0 ? "option-recycle" : ""}
+              ${isFase5 && i === 0 ? "option-tech" : ""}
+              ${isFase6 && i === 1 ? "option-camera" : ""}
+            `}
+            onClick={() => escolhida === null && onEscolha(i)}
+            type="button"
+            disabled={escolhida !== null}
+          >
+            {isFase4 && (
+              <div className="option-icon-top">
+                {i === 0 ? <RecycleIcon size={36} /> : <TrashIcon size={36} />}
+              </div>
+            )}
+            {isFase5 && (
+              <div className="option-icon-top">
+                {i === 0 ? <span style={{fontSize:"30px"}}>💻</span> : <span style={{fontSize:"30px"}}>📖</span>}
+              </div>
+            )}
+            {isFase6 && (
+              <div className="option-icon-top">
+                {i === 0 ? <span style={{fontSize:"30px"}}>👮</span> : <span style={{fontSize:"30px"}}>📷</span>}
+              </div>
+            )}
+            <p className="option-title">
+              {op.titulo.split("\n").map((l, j) => (
+                <span key={j}>{l}{j < op.titulo.split("\n").length - 1 && <br />}</span>
+              ))}
+            </p>
+            <div className="option-badges">
+              <span className="badge badge-coin">
+                <CoinIcon size={22} />
+                R${op.custo}
+              </span>
+              <span className="badge badge-exp">
+                <ExpIcon size={22} />
+                {op.exp >= 0 ? `+${op.exp}` : op.exp}
+              </span>
+            </div>
+          </button>
+        ))}
+      </div>
+
+      {escolhida !== null && (
+        <div className="feedback-bar">
+          <span className="feedback-emoji">{pergunta.opcoes[escolhida].melhor ? "✅" : "⚠️"}</span>
+          <span>{pergunta.opcoes[escolhida].feedback}</span>
+        </div>
+      )}
+    </main>
+  );
+};
 
 const TelaFinal = ({ coins, exp, total, onReiniciar }) => (
   <main className="game-screen end-screen">
-    <Cenario />
+    <Cenario fase={1} />
     <div className="end-panel">
       <h1 className="end-title">Fase concluída!</h1>
       <p className="end-sub">Você salvou a cidade com {total} acertos</p>
@@ -405,6 +608,21 @@ const CSS = `
   background: linear-gradient(#8bd1ec 0%, #b9e7f2 72%, #78c743 72%, #78c743 100%);
 }
 
+/* Fase 4: céu amarelado / poluído */
+.game-screen-fase4 {
+  background: linear-gradient(#c9b86c 0%, #ddd09a 70%, #8aaa40 70%, #8aaa40 100%);
+}
+
+/* Fase 5: céu azul-tecnológico */
+.game-screen-fase5 {
+  background: linear-gradient(#4a90d9 0%, #87ceeb 68%, #5aad3f 68%, #5aad3f 100%);
+}
+
+/* Fase 6: céu noturno / segurança */
+.game-screen-fase6 {
+  background: linear-gradient(#1a1a3e 0%, #2d2d6e 60%, #3a5a30 60%, #3a5a30 100%);
+}
+
 /* ── Nuvens ── */
 .cloud {
   position: absolute;
@@ -426,6 +644,31 @@ const CSS = `
 .cloud-right  { width:210px; height:84px; right:66px; top:38px; }
 .cloud-right::before  { width:122px; height:118px; left:28px; top:-44px; }
 .cloud-right::after   { width:154px; height:114px; left:105px; top:-24px; }
+
+/* Nuvens poluídas na Fase 4 */
+.game-screen-fase4 .cloud,
+.game-screen-fase4 .cloud::before,
+.game-screen-fase4 .cloud::after {
+  background: #b5b09a;
+}
+
+/* Nuvens azuladas na Fase 5 */
+.game-screen-fase5 .cloud,
+.game-screen-fase5 .cloud::before,
+.game-screen-fase5 .cloud::after {
+  background: #dff0ff;
+}
+
+/* Estrelas na Fase 6 (nuvens escuras) */
+.game-screen-fase6 .cloud,
+.game-screen-fase6 .cloud::before,
+.game-screen-fase6 .cloud::after {
+  background: #2a2a5a;
+}
+
+/* Prédios com janelas acesas (Fase 6 — noturno) */
+.game-screen-fase6 .window { background: #ffe566; }
+.game-screen-fase6 .ground { background: #3a5a30; }
 
 /* ── HUD ── */
 .hud {
@@ -453,6 +696,70 @@ const CSS = `
 .coin-wrap { background:#f1a72a; }
 .exp-wrap  { background:#416f9e; }
 
+/* ── Indicador de Fase ── */
+.fase-indicator {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0,0,0,0.50);
+  border-radius: 20px;
+  padding: 10px 22px 8px;
+}
+.fase-titulo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+.fase-numero {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(11px, 1.5vw, 14px);
+  color: #ffe082;
+  animation: fasePop .4s ease;
+}
+.fase-nome {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(7px, 1vw, 10px);
+  color: rgba(255,255,255,0.75);
+  animation: fasePop .4s ease;
+  white-space: nowrap;
+}
+.fase-dots {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.fase-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  border: 2px solid rgba(255,255,255,0.4);
+  transition: all .4s;
+}
+.fase-dot-active { background: #ffe082; border-color: #f0a42a; }
+.fase-dot-current {
+  width: 16px; height: 16px;
+  background: #ff6d37;
+  border-color: #ffbc63;
+  box-shadow: 0 0 10px #ff6d37;
+  animation: pulseDot 1.2s infinite;
+}
+@keyframes pulseDot {
+  0%, 100% { box-shadow: 0 0 6px #ff6d37; }
+  50%       { box-shadow: 0 0 16px #ff6d37, 0 0 28px #ffbc6388; }
+}
+@keyframes fasePop {
+  from { opacity: 0; transform: translateY(-6px) scale(0.92); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
 /* ── Títulos ── */
 h1, h2 {
   position:relative; z-index:9;
@@ -465,6 +772,71 @@ h2 { padding-top:22px;  font-size:clamp(30px,5.5vw,52px); }
 .ground {
   position:absolute; left:0; right:0; bottom:0;
   height:142px; background:#78c743; z-index:3;
+}
+.ground-dirty { background: #8aaa40; }
+
+/* ── Cena do Lixão (Fase 4) ── */
+.lixao-scene {
+  position: absolute;
+  bottom: 142px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 120px;
+  z-index: 4;
+}
+
+.lixao-pile {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 60px;
+  background: #7a6a40;
+  border-radius: 50% 50% 20% 20%;
+  border: 3px solid #5a4a28;
+}
+.lixao-pile2 {
+  width: 90px;
+  height: 40px;
+  bottom: 36px;
+  left: 20%;
+  background: #6a5a30;
+}
+.lixao-pile3 {
+  width: 80px;
+  height: 35px;
+  bottom: 30px;
+  left: 58%;
+  background: #8a7a50;
+}
+
+.trash-bag {
+  position: absolute;
+  width: 26px;
+  height: 32px;
+  background: #1a1a2e;
+  border-radius: 50% 50% 30% 30% / 40% 40% 30% 30%;
+  border: 2px solid #333;
+}
+.bag1 { bottom: 50px; left: 35%; }
+.bag2 { bottom: 42px; left: 52%; }
+.bag3 { bottom: 55px; left: 22%; }
+
+.smoke {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(120, 110, 80, 0.55);
+  animation: smokeRise 3s infinite ease-out;
+}
+.smoke1 { width: 28px; height: 28px; bottom: 80px; left: 44%; animation-delay: 0s; }
+.smoke2 { width: 22px; height: 22px; bottom: 90px; left: 52%; animation-delay: 1s; }
+.smoke3 { width: 18px; height: 18px; bottom: 85px; left: 36%; animation-delay: 1.8s; }
+
+@keyframes smokeRise {
+  0%   { opacity: 0.7; transform: translateY(0) scale(1); }
+  100% { opacity: 0;   transform: translateY(-70px) scale(2.5); }
 }
 
 /* ── Prédios ── */
@@ -514,6 +886,9 @@ h2 { padding-top:22px;  font-size:clamp(30px,5.5vw,52px); }
 .leaf2 { width:74px; height:74px; left:57px; top:44px; }
 .leaf3 { width:78px; height:78px; left:80px; top:80px; }
 .leaf4 { width:91px; height:86px; left:25px; top:92px; }
+
+/* Árvores com aparência doente na Fase 4 */
+.game-screen-fase4 .leaf { background: #7a9c00; }
 
 /* ── Personagem ── */
 .person {
@@ -590,6 +965,61 @@ h2 { padding-top:22px;  font-size:clamp(30px,5.5vw,52px); }
   backdrop-filter: blur(2px);
 }
 
+/* Caixa de pergunta especial Fase 4 */
+.question-box-fase4 {
+  background: rgba(255, 245, 200, 0.88);
+  border: 4px solid #c8a020;
+  color: #3a2800;
+}
+
+/* Caixa de pergunta especial Fase 5 */
+.question-box-fase5 {
+  background: rgba(220, 240, 255, 0.92);
+  border: 4px solid #1a6fbf;
+  color: #0a2a50;
+}
+
+/* Caixa de pergunta especial Fase 6 */
+.question-box-fase6 {
+  background: rgba(20, 20, 60, 0.90);
+  border: 4px solid #4444cc;
+  color: #e0e0ff;
+}
+
+.fase4-icon-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.fase4-badge {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(9px, 1.2vw, 12px);
+  color: #8a4400;
+  background: #ffd54f;
+  border: 2px solid #e67e22;
+  border-radius: 8px;
+  padding: 4px 10px;
+}
+
+.fase-badge-special {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(9px, 1.2vw, 12px);
+  color: #003a80;
+  background: #b3d9ff;
+  border: 2px solid #1a6fbf;
+  border-radius: 8px;
+  padding: 4px 10px;
+}
+
+.fase6-badge {
+  color: #ffe566;
+  background: #22226a;
+  border-color: #5555dd;
+}
+
 /* ── Opções ── */
 .options-row {
   position: absolute;
@@ -625,11 +1055,45 @@ h2 { padding-top:22px;  font-size:clamp(30px,5.5vw,52px); }
   border-radius:14px;
   z-index:0;
 }
+
+/* Opção de reciclagem com destaque verde */
+.option-recycle {
+  background: #a8e063;
+  border-color: #4cae00;
+}
+.option-recycle::before {
+  background: #5cb800;
+}
+
+/* Opção tecnológica (Fase 5) */
+.option-tech {
+  background: #b3d9ff;
+  border-color: #1a6fbf;
+}
+.option-tech::before {
+  background: #2a7fd4;
+}
+
+/* Opção câmera (Fase 6) */
+.option-camera {
+  background: #c8c8ff;
+  border-color: #4444cc;
+}
+.option-camera::before {
+  background: #5555dd;
+}
+
 .option-card:hover:not(:disabled) { transform:translateY(-5px) scale(1.02); filter:brightness(1.06); }
 .option-card:active:not(:disabled) { transform:translateY(2px) scale(.97); }
 .option-card.chosen { filter: brightness(1.1); transform: scale(1.04); border-color: #050505; }
 .option-card.correct { border-color: #2a8c00; background: #baff75; }
+.option-card.correct::before { background: #4cae00; }
 .option-card:disabled { cursor: default; }
+
+.option-icon-top {
+  position: relative;
+  z-index: 1;
+}
 
 .option-title {
   position: relative; z-index:1;
@@ -761,5 +1225,8 @@ h2 { padding-top:22px;  font-size:clamp(30px,5.5vw,52px); }
   .end-panel { padding: 28px 20px; }
   .end-panel .start-button { width: 290px; }
   .end-stats { gap: 16px; flex-direction: column; }
+  .lixao-scene { display: none; }
+  .fase-indicator { top: 8px; padding: 6px 14px 5px; }
+  .fase-nome { display: none; }
 }
 `;
