@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 /* ─────────────────────────────────────────────
    DADOS DO JOGO
@@ -198,20 +198,76 @@ const FASE_6 = [
 
 /* ── Lista completa usada pelo jogo (não alterar) ── */
 const PERGUNTAS = [...FASE_1, ...FASE_2, ...FASE_3, ...FASE_4, ...FASE_5, ...FASE_6];
+const MOEDAS_INICIAIS = 500;
+
+const calcularRetorno = (opcao) => {
+  if (opcao.exp <= 0) return 0;
+  return opcao.melhor ? Math.round(opcao.exp * 0.35) : Math.round(opcao.exp * 0.08);
+};
+
+const calcularResultadoFinal = ({ acertos, exp }) => {
+  const totalPerguntas = PERGUNTAS.length;
+  const salvouCidade = acertos >= 5 && exp >= 4500;
+  const aproveitamento = Math.round((acertos / totalPerguntas) * 100);
+
+  if (salvouCidade && acertos === totalPerguntas) {
+    return {
+      salvouCidade,
+      ranking: "S",
+      titulo: "Cidade salva!",
+      mensagem: "Gestao perfeita. A cidade terminou forte, sustentavel e preparada.",
+      aproveitamento,
+    };
+  }
+
+  if (salvouCidade) {
+    return {
+      salvouCidade,
+      ranking: "A",
+      titulo: "Cidade salva!",
+      mensagem: "Boa gestao. A cidade passou pelos problemas principais.",
+      aproveitamento,
+    };
+  }
+
+  if (acertos >= 3 && exp >= 1500) {
+    return {
+      salvouCidade,
+      ranking: "B",
+      titulo: "Cidade em risco",
+      mensagem: "Algumas escolhas ajudaram, mas a cidade ainda precisa de cuidado.",
+      aproveitamento,
+    };
+  }
+
+  return {
+    salvouCidade,
+    ranking: "C",
+    titulo: "Cidade nao salva",
+    mensagem: "As decisoes nao foram suficientes para proteger a cidade.",
+    aproveitamento,
+  };
+};
 
 /* ─────────────────────────────────────────────
    ÍCONES SVG PIXEL ART
 ───────────────────────────────────────────── */
 const CoinIcon = ({ size = 42 }) => (
   <svg width={size} height={size} viewBox="0 0 32 32" style={{ imageRendering: "pixelated" }}>
-    <rect x="8" y="2" width="16" height="2" fill="#b96b13" />
-    <rect x="4" y="4" width="24" height="4" fill="#d8891d" />
-    <rect x="2" y="8" width="28" height="16" fill="#f0a42a" />
-    <rect x="4" y="24" width="24" height="4" fill="#d8891d" />
-    <rect x="8" y="28" width="16" height="2" fill="#b96b13" />
-    <rect x="8" y="8" width="16" height="16" fill="#ffc45a" />
-    <rect x="10" y="10" width="12" height="12" fill="#f4a72e" />
-    <rect x="12" y="12" width="8" height="8" fill="#ffc75f" />
+    <rect x="10" y="0" width="12" height="2" fill="#7a3f08" />
+    <rect x="6" y="2" width="20" height="2" fill="#7a3f08" />
+    <rect x="4" y="4" width="24" height="4" fill="#b76612" />
+    <rect x="2" y="8" width="28" height="16" fill="#d98119" />
+    <rect x="4" y="24" width="24" height="4" fill="#8f4b0a" />
+    <rect x="8" y="28" width="16" height="2" fill="#6d3605" />
+    <rect x="6" y="6" width="20" height="18" fill="#f4a72e" />
+    <rect x="8" y="8" width="16" height="14" fill="#ffc84f" />
+    <rect x="10" y="10" width="12" height="10" fill="#f2a12a" />
+    <rect x="12" y="12" width="8" height="6" fill="#ffd979" />
+    <rect x="14" y="8" width="4" height="2" fill="#fff0a8" />
+    <rect x="8" y="22" width="16" height="2" fill="#b76612" />
+    <rect x="6" y="12" width="2" height="10" fill="#fff0a8" opacity="0.65" />
+    <rect x="24" y="10" width="2" height="12" fill="#8f4b0a" opacity="0.65" />
   </svg>
 );
 
@@ -333,18 +389,18 @@ const Person = () => (
 );
 
 const HUD = ({ coins, exp }) => (
-  <>
-    <section className="hud hud-left">
+  <div className="hud-panel" aria-label="Pontuacao atual">
+    <section className="hud hud-left" aria-label={`Moedas disponiveis: ${coins}`}>
       <div className="icon-wrap coin-wrap"><CoinIcon size={46} /></div>
       <span>Moedas</span>
       <strong>{coins}</strong>
     </section>
-    <section className="hud hud-right">
+    <section className="hud hud-right" aria-label={`Experiencia acumulada: ${exp}`}>
       <div className="icon-wrap exp-wrap"><ExpIcon size={42} /></div>
       <span>Exp.</span>
       <strong>{exp}</strong>
     </section>
-  </>
+  </div>
 );
 
 const Cenario = ({ fase }) => (
@@ -375,12 +431,12 @@ const FASE_NOMES = {
 
 /* Indicador de fase com título animado */
 const FaseIndicador = ({ fase, total = 6 }) => (
-  <div className="fase-indicator">
+  <div className="fase-indicator" aria-label={`Fase ${fase} de ${total}: ${FASE_NOMES[fase]}`}>
     <div className="fase-titulo-wrap">
       <span className="fase-numero" key={fase}>Fase {fase}</span>
       <span className="fase-nome" key={`nome-${fase}`}>{FASE_NOMES[fase]}</span>
     </div>
-    <div className="fase-dots">
+    <div className="fase-dots" aria-hidden="true">
       {Array.from({ length: total }).map((_, i) => (
         <div
           key={i}
@@ -394,30 +450,46 @@ const FaseIndicador = ({ fase, total = 6 }) => (
 /* ─────────────────────────────────────────────
    TELAS
 ───────────────────────────────────────────── */
-const TelaInicial = ({ onIniciar, fase }) => (
-  <main className="game-screen">
+const AcessibilidadePainel = ({ altoContraste, textoGrande, onContraste, onTextoGrande, onLer }) => (
+  <aside className="accessibility-panel" aria-label="Controles de acessibilidade">
+    <button type="button" onClick={onContraste} aria-pressed={altoContraste}>
+      Contraste
+    </button>
+    <button type="button" onClick={onTextoGrande} aria-pressed={textoGrande}>
+      Texto A+
+    </button>
+    <button type="button" onClick={onLer}>
+      Ler
+    </button>
+  </aside>
+);
+
+const TelaInicial = ({ onIniciar, fase, classesTela, controlesAcessibilidade }) => (
+  <main className={`game-screen ${classesTela}`} aria-label="Tela inicial do jogo Salve a cidade">
     <Cenario fase={fase} />
+    <AcessibilidadePainel {...controlesAcessibilidade} />
     <h1>Salve a cidade</h1>
     <h2>Fase {fase}:</h2>
-    <button className="start-button" type="button" onClick={onIniciar}>
+    <button className="start-button" type="button" onClick={onIniciar} aria-label="Iniciar jogo">
       <span>Iniciar</span>
-      <div className="play-circle">▶</div>
+      <div className="play-circle" aria-hidden="true">▶</div>
     </button>
   </main>
 );
 
-const TelaPergunta = ({ pergunta, coins, exp, onEscolha, escolhida }) => {
+const TelaPergunta = ({ pergunta, coins, exp, onEscolha, escolhida, classesTela, controlesAcessibilidade }) => {
   const isFase4 = pergunta.fase === 4;
   const isFase5 = pergunta.fase === 5;
   const isFase6 = pergunta.fase === 6;
   const extraClass = isFase4 ? "game-screen-fase4" : isFase5 ? "game-screen-fase5" : isFase6 ? "game-screen-fase6" : "";
   return (
-    <main className={`game-screen ${extraClass}`}>
+    <main className={`game-screen ${extraClass} ${classesTela}`} aria-labelledby="pergunta-atual">
       <Cenario fase={pergunta.fase} />
+      <AcessibilidadePainel {...controlesAcessibilidade} />
       <HUD coins={coins} exp={exp} />
       <FaseIndicador fase={pergunta.fase} />
 
-      <div className={`question-box ${isFase4 ? "question-box-fase4" : ""} ${isFase5 ? "question-box-fase5" : ""} ${isFase6 ? "question-box-fase6" : ""}`}>
+      <div id="pergunta-atual" className={`question-box ${isFase4 ? "question-box-fase4" : ""} ${isFase5 ? "question-box-fase5" : ""} ${isFase6 ? "question-box-fase6" : ""}`} tabIndex="-1">
         {isFase4 && (
           <div className="fase4-icon-row">
             <TrashIcon size={42} />
@@ -454,6 +526,7 @@ const TelaPergunta = ({ pergunta, coins, exp, onEscolha, escolhida }) => {
             onClick={() => escolhida === null && onEscolha(i)}
             type="button"
             disabled={escolhida !== null}
+            aria-label={`${op.titulo.replace(/\n/g, " ")}. Custo ${op.custo} moedas.`}
           >
             {isFase4 && (
               <div className="option-icon-top">
@@ -478,46 +551,75 @@ const TelaPergunta = ({ pergunta, coins, exp, onEscolha, escolhida }) => {
             <div className="option-badges">
               <span className="badge badge-coin">
                 <CoinIcon size={22} />
-                R${op.custo}
+                -R${op.custo}
               </span>
-              <span className="badge badge-exp">
-                <ExpIcon size={22} />
-                {op.exp >= 0 ? `+${op.exp}` : op.exp}
-              </span>
+              {escolhida === i && (
+                <span className="badge badge-income">
+                  <CoinIcon size={22} />
+                  +R${calcularRetorno(op)}
+                </span>
+              )}
+              {escolhida === i && (
+                <span className="badge badge-exp">
+                  <ExpIcon size={22} />
+                  {op.exp >= 0 ? `+${op.exp}` : op.exp}
+                </span>
+              )}
             </div>
           </button>
         ))}
       </div>
 
       {escolhida !== null && (
-        <div className="feedback-bar">
+        <div className="feedback-bar" role="status" aria-live="polite">
           <span className="feedback-emoji">{pergunta.opcoes[escolhida].melhor ? "✅" : "⚠️"}</span>
-          <span>{pergunta.opcoes[escolhida].feedback}</span>
+          <span>
+            {pergunta.opcoes[escolhida].feedback}
+            {` Resultado: +R$${calcularRetorno(pergunta.opcoes[escolhida])} e ${
+              pergunta.opcoes[escolhida].exp >= 0 ? "+" : ""
+            }${pergunta.opcoes[escolhida].exp} Exp.`}
+          </span>
         </div>
       )}
     </main>
   );
 };
 
-const TelaFinal = ({ coins, exp, total, onReiniciar }) => (
-  <main className="game-screen end-screen">
+const TelaFinal = ({ coins, exp, total, onReiniciar, classesTela, controlesAcessibilidade }) => {
+  const resultado = calcularResultadoFinal({ acertos: total, exp });
+
+  return (
+  <main className={`game-screen end-screen ${classesTela}`} aria-label="Resultado final do jogo">
     <Cenario fase={1} />
-    <div className="end-panel">
-      <h1 className="end-title">Fase concluída!</h1>
-      <p className="end-sub">Você salvou a cidade com {total} acertos</p>
-      <div className="end-stats">
+    <AcessibilidadePainel {...controlesAcessibilidade} />
+    <div className={`end-panel ${resultado.salvouCidade ? "end-panel-win" : "end-panel-lose"}`}>
+      <span className="end-kicker">Resultado final</span>
+      <div className="ranking-badge" aria-label={`Ranking ${resultado.ranking}`}>
+        {resultado.ranking}
+      </div>
+      <h1 className="end-title">{resultado.titulo}</h1>
+      <p className="end-sub">{resultado.mensagem}</p>
+      <div className="end-stats" aria-label="Resumo da partida">
         <div className="stat">
-          <CoinIcon size={36} />
+          <strong>{total}/{PERGUNTAS.length}</strong>
+          <span>Acertos</span>
+        </div>
+        <div className="stat">
+          <strong>{resultado.aproveitamento}%</strong>
+          <span>Aproveitamento</span>
+        </div>
+        <div className="stat">
+          <CoinIcon size={32} />
           <span>{coins} Moedas</span>
         </div>
         <div className="stat">
-          <ExpIcon size={36} />
+          <ExpIcon size={32} />
           <span>{exp} Exp.</span>
         </div>
       </div>
-      <button className="start-button" type="button" onClick={onReiniciar}>
+      <button className="replay-button" type="button" onClick={onReiniciar} aria-label="Jogar novamente">
         <span>Jogar novamente</span>
-        <div className="play-circle">▶</div>
+        <div className="play-circle" aria-hidden="true">▶</div>
       </button>
     </div>
   </main>
@@ -526,15 +628,56 @@ const TelaFinal = ({ coins, exp, total, onReiniciar }) => (
 /* ─────────────────────────────────────────────
    JOGO PRINCIPAL
 ───────────────────────────────────────────── */
+};
+
 export default function SalveACidade() {
   const [tela, setTela] = useState("inicio");
-  const [coins, setCoins] = useState(500);
+  const [coins, setCoins] = useState(MOEDAS_INICIAIS);
   const [exp, setExp] = useState(0);
   const [qIdx, setQIdx] = useState(0);
   const [escolhida, setEscolhida] = useState(null);
   const [acertos, setAcertos] = useState(0);
+  const [altoContraste, setAltoContraste] = useState(false);
+  const [textoGrande, setTextoGrande] = useState(false);
 
   const perguntaAtual = PERGUNTAS[qIdx];
+  const classesTela = `${altoContraste ? "a11y-contrast" : ""} ${textoGrande ? "a11y-large-text" : ""}`;
+
+  const lerTexto = (texto) => {
+    if (!("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+    const fala = new SpeechSynthesisUtterance(texto);
+    fala.lang = "pt-BR";
+    fala.rate = 0.92;
+    window.speechSynthesis.speak(fala);
+  };
+
+  const lerPerguntaAtual = () => {
+    if (tela === "inicio") {
+      lerTexto("Salve a cidade. Pressione iniciar para comecar.");
+      return;
+    }
+    if (tela === "fim") {
+      lerTexto(`Fase concluida. Voce terminou com ${coins} moedas, ${exp} experiencia e ${acertos} acertos.`);
+      return;
+    }
+    lerTexto(`${perguntaAtual.texto}. Opcoes: ${perguntaAtual.opcoes.map((op, i) => `Opcao ${i + 1}: ${op.titulo}. Custo ${op.custo} moedas.`).join(" ")}`);
+  };
+
+  useEffect(() => {
+    if (tela === "pergunta") {
+      const el = document.getElementById("pergunta-atual");
+      el?.focus({ preventScroll: true });
+    }
+  }, [qIdx, tela]);
+
+  const controlesAcessibilidade = {
+    altoContraste,
+    textoGrande,
+    onContraste: () => setAltoContraste((v) => !v),
+    onTextoGrande: () => setTextoGrande((v) => !v),
+    onLer: lerPerguntaAtual,
+  };
 
   const handleIniciar = () => {
     setTela("pergunta");
@@ -544,8 +687,9 @@ export default function SalveACidade() {
 
   const handleEscolha = (i) => {
     const op = perguntaAtual.opcoes[i];
+    const retorno = calcularRetorno(op);
     setEscolhida(i);
-    setCoins((c) => Math.max(0, c - op.custo));
+    setCoins((c) => Math.max(0, c - op.custo + retorno));
     setExp((e) => e + op.exp);
     if (op.melhor) setAcertos((a) => a + 1);
 
@@ -561,7 +705,7 @@ export default function SalveACidade() {
 
   const handleReiniciar = () => {
     setTela("inicio");
-    setCoins(500);
+    setCoins(MOEDAS_INICIAIS);
     setExp(0);
     setQIdx(0);
     setEscolhida(null);
@@ -572,7 +716,12 @@ export default function SalveACidade() {
     <>
       <style>{CSS}</style>
       {tela === "inicio" && (
-        <TelaInicial onIniciar={handleIniciar} fase={perguntaAtual?.fase ?? 1} />
+        <TelaInicial
+          onIniciar={handleIniciar}
+          fase={perguntaAtual?.fase ?? 1}
+          classesTela={classesTela}
+          controlesAcessibilidade={controlesAcessibilidade}
+        />
       )}
       {tela === "pergunta" && (
         <TelaPergunta
@@ -581,14 +730,25 @@ export default function SalveACidade() {
           exp={exp}
           onEscolha={handleEscolha}
           escolhida={escolhida}
+          classesTela={classesTela}
+          controlesAcessibilidade={controlesAcessibilidade}
         />
       )}
       {tela === "fim" && (
-        <TelaFinal coins={coins} exp={exp} total={acertos} onReiniciar={handleReiniciar} />
+        <TelaFinal
+          coins={coins}
+          exp={exp}
+          total={acertos}
+          onReiniciar={handleReiniciar}
+          classesTela={classesTela}
+          controlesAcessibilidade={controlesAcessibilidade}
+        />
       )}
     </>
   );
 }
+
+
 
 /* ─────────────────────────────────────────────
    ESTILOS
@@ -598,8 +758,19 @@ const CSS = `
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+html, body, #root {
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+button:focus-visible {
+  outline: 5px solid #fff200;
+  outline-offset: 5px;
+  box-shadow: 0 0 0 10px #050505;
+}
+
 .game-screen {
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   overflow: hidden;
   position: relative;
@@ -671,30 +842,73 @@ const CSS = `
 .game-screen-fase6 .ground { background: #3a5a30; }
 
 /* ── HUD ── */
-.hud {
+.hud-panel {
   position: absolute;
-  top: 56px;
-  height: 56px;
+  top: 24px;
+  left: 24px;
+  right: 24px;
+  z-index: 12;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  pointer-events: none;
+}
+.hud {
+  position: relative;
+  height: 58px;
   border-radius: 28px;
   background: #3f6d9f;
-  border: 18px solid #0455a6;
+  border: 10px solid #0455a6;
   display: flex;
   align-items: center;
   color: white;
   z-index: 8;
+  box-shadow: 0 4px 0 rgba(0,0,0,.18);
 }
 .hud span  { font-size: 18px; letter-spacing: 1px; line-height: 1; }
-.hud strong { font-size: 14px; margin-left: 12px; color: #ffe082; }
-.hud-left  { left:38px; width:220px; padding-left:62px; }
-.hud-right { right:38px; width:220px; padding-left:64px; }
+.hud strong { font-size: 14px; margin-left: 10px; color: #ffe082; }
+.hud-left,
+.hud-right { width: 230px; padding-left: 58px; }
+.hud-left { width: 250px; padding-left: 62px; padding-right: 18px; }
 .icon-wrap {
   width:56px; height:56px;
-  position:absolute; left:-2px; top:-18px;
+  position:absolute; left:-8px; top:-9px;
   display:grid; place-items:center;
   border-radius:50%;
+  border: 3px solid rgba(0,0,0,.24);
+  box-shadow: inset 0 -5px 0 rgba(0,0,0,.16), 0 3px 0 rgba(0,0,0,.18);
 }
-.coin-wrap { background:#f1a72a; }
+.coin-wrap { background:#f5a623; }
 .exp-wrap  { background:#416f9e; }
+
+.accessibility-panel {
+  position: absolute;
+  right: 24px;
+  top: 94px;
+  z-index: 13;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 14px;
+  background: rgba(0,0,0,.58);
+  border: 2px solid rgba(255,255,255,.45);
+}
+.accessibility-panel button {
+  min-height: 42px;
+  border: 3px solid #050505;
+  border-radius: 8px;
+  background: #fff7c2;
+  color: #050505;
+  cursor: pointer;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  line-height: 1.2;
+  padding: 8px 10px;
+}
+.accessibility-panel button[aria-pressed="true"] {
+  background: #fff200;
+  box-shadow: inset 0 -4px 0 #c78d00;
+}
 
 /* ── Indicador de Fase ── */
 .fase-indicator {
@@ -708,8 +922,11 @@ const CSS = `
   align-items: center;
   gap: 8px;
   background: rgba(0,0,0,0.50);
+  border: 2px solid rgba(255,255,255,.22);
   border-radius: 20px;
-  padding: 10px 22px 8px;
+  padding: 12px 24px 10px;
+  min-width: 260px;
+  box-shadow: 0 5px 0 rgba(0,0,0,.16);
 }
 .fase-titulo-wrap {
   display: flex;
@@ -950,7 +1167,7 @@ h2 { padding-top:22px;  font-size:clamp(30px,5.5vw,52px); }
 .question-box {
   position:relative; z-index:9;
   margin: 0 auto;
-  margin-top: 130px;
+  margin-top: 152px;
   width: fit-content;
   max-width: 760px;
   text-align: center;
@@ -990,7 +1207,7 @@ h2 { padding-top:22px;  font-size:clamp(30px,5.5vw,52px); }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 12px;
   margin-bottom: 10px;
 }
 
@@ -1046,7 +1263,8 @@ h2 { padding-top:22px;  font-size:clamp(30px,5.5vw,52px); }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
+  min-height: 148px;
 }
 .option-card::before {
   content:'';
@@ -1126,6 +1344,7 @@ h2 { padding-top:22px;  font-size:clamp(30px,5.5vw,52px); }
   white-space: nowrap;
 }
 .badge-coin { background: #0455a6; border-color: #03377a; }
+.badge-income { background: #7d4f00; border-color: #4f3200; }
 .badge-exp  { background: #2d6b14; border-color: #1a4409; }
 
 /* ── Feedback ── */
@@ -1153,6 +1372,59 @@ h2 { padding-top:22px;  font-size:clamp(30px,5.5vw,52px); }
 }
 .feedback-emoji { font-size: 24px; flex-shrink: 0; }
 
+.a11y-large-text .question-box {
+  max-width: 900px;
+  font-size: clamp(18px, 2.6vw, 30px);
+  line-height: 1.85;
+}
+.a11y-large-text .option-title {
+  font-size: clamp(15px, 2vw, 22px);
+}
+.a11y-large-text .badge,
+.a11y-large-text .hud strong,
+.a11y-large-text .feedback-bar span {
+  font-size: 16px;
+}
+.a11y-large-text .hud span {
+  font-size: 20px;
+}
+
+.a11y-contrast {
+  background: linear-gradient(#0b2a4a 0%, #0b2a4a 70%, #123c12 70%, #123c12 100%);
+}
+.a11y-contrast .cloud,
+.a11y-contrast .cloud::before,
+.a11y-contrast .cloud::after {
+  background: #ffffff;
+}
+.a11y-contrast .question-box,
+.a11y-contrast .end-panel {
+  background: #ffffff;
+  color: #050505;
+  border-color: #050505;
+}
+.a11y-contrast .hud {
+  background: #050505;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+.a11y-contrast .hud strong {
+  color: #fff200;
+}
+.a11y-contrast .option-card {
+  background: #fff200;
+  border-color: #050505;
+}
+.a11y-contrast .option-card::before {
+  background: #005fcc;
+}
+.a11y-contrast .option-title,
+.a11y-contrast .badge,
+.a11y-contrast .feedback-bar span {
+  color: #ffffff;
+  text-shadow: 2px 2px 0 #050505;
+}
+
 @keyframes slideUp {
   from { opacity:0; transform:translateX(-50%) translateY(16px); }
   to   { opacity:1; transform:translateX(-50%) translateY(0); }
@@ -1169,50 +1441,150 @@ h2 { padding-top:22px;  font-size:clamp(30px,5.5vw,52px); }
   background: rgba(255,255,255,0.88);
   border-radius: 24px;
   border: 5px solid #0455a6;
-  padding: 48px 56px;
+  padding: 34px 44px 36px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
-  margin-top: -80px;
+  gap: 16px;
+  margin-top: 20px;
+  width: min(760px, 92vw);
+  box-shadow: 0 8px 0 rgba(0,0,0,.18);
+}
+.end-panel-win {
+  border-color: #2a8c00;
+}
+.end-panel-lose {
+  border-color: #b91c1c;
+}
+.end-kicker {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(9px, 1vw, 12px);
+  color: #3f4f5f;
+  text-transform: uppercase;
+}
+.ranking-badge {
+  width: 104px;
+  height: 104px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  background: #0455a6;
+  border: 6px solid #ffbc63;
+  color: #fff200;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 46px;
+  box-shadow: inset 0 -8px 0 rgba(0,0,0,.18);
+}
+.end-panel-lose .ranking-badge {
+  background: #7f1d1d;
+  border-color: #ff8a8a;
 }
 .end-title {
   font-family: 'Press Start 2P', monospace;
-  font-size: clamp(22px, 3.5vw, 40px);
+  font-size: clamp(20px, 3vw, 34px);
   color: #050505;
   padding-top: 0 !important;
+  text-align: center;
 }
 .end-sub {
   font-family: 'Press Start 2P', monospace;
-  font-size: clamp(12px, 1.8vw, 18px);
+  font-size: clamp(11px, 1.4vw, 15px);
   color: #333;
   text-align: center;
   line-height: 1.8;
+  max-width: 620px;
 }
 .end-stats {
-  display: flex;
-  gap: 32px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
 }
 .stat {
   display: flex;
+  min-height: 78px;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
   gap: 10px;
   font-family: 'Press Start 2P', monospace;
-  font-size: clamp(12px, 1.6vw, 16px);
+  font-size: clamp(9px, 1.1vw, 12px);
   color: #050505;
+  text-align: center;
+  line-height: 1.5;
+  background: rgba(255,255,255,.75);
+  border: 3px solid rgba(0,0,0,.18);
+  border-radius: 12px;
+  padding: 10px;
 }
-.end-panel .start-button {
-  position: static;
-  transform: none;
-  width: 380px;
+.stat strong {
+  font-size: clamp(15px, 2vw, 22px);
+  color: #0455a6;
 }
-.end-panel .start-button:hover { transform: translateY(-4px) scale(1.02); filter: brightness(1.05); }
-.end-panel .start-button:active { transform: translateY(2px) scale(.97); }
+.replay-button {
+  border: none;
+  border-radius: 36px;
+  background:#ffbc63;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  cursor:pointer;
+  padding: 12px 18px;
+  min-width: 300px;
+  min-height: 70px;
+  position: relative;
+  font-family: 'Press Start 2P', monospace;
+  transition: transform .15s, filter .1s;
+}
+.replay-button::before {
+  content:'';
+  position:absolute;
+  left:10px;
+  right:10px;
+  top:9px;
+  bottom:9px;
+  background:#ff6d37;
+  border-radius:28px;
+  z-index:0;
+}
+.replay-button span,
+.replay-button .play-circle {
+  position: relative;
+  z-index: 1;
+}
+.replay-button span {
+  color:white;
+  font-size: clamp(14px, 1.8vw, 20px);
+  text-shadow:3px 3px 0 rgba(0,0,0,.12);
+}
+.replay-button .play-circle {
+  width:48px;
+  height:48px;
+  font-size:30px;
+  padding-left:5px;
+}
+.replay-button:hover { transform: translateY(-4px) scale(1.02); filter: brightness(1.05); }
+.replay-button:active { transform: translateY(2px) scale(.97); }
 
 /* ── Responsivo ── */
 @media (max-width: 760px) {
-  .hud { transform:scale(.78); transform-origin:top left; }
+  .hud-panel { top: 10px; left: 8px; right: 8px; }
+  .hud { transform:scale(.72); }
+  .hud-left { transform-origin:top left; }
   .hud-right { transform-origin:top right; }
+  .accessibility-panel {
+    top: 108px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: calc(100% - 24px);
+  }
+  .accessibility-panel button {
+    min-height: 38px;
+    font-size: 9px;
+    padding: 7px 8px;
+  }
   h1 { padding-top:150px; }
   .tree-left  { left:150px; }
   .tree-right { right:160px; }
@@ -1221,12 +1593,13 @@ h2 { padding-top:22px;  font-size:clamp(30px,5.5vw,52px); }
   .start-button { width:290px; }
   .options-row { flex-direction: column; bottom: 4px; width: 96%; gap: 10px; }
   .option-card { padding: 12px 12px 10px; }
-  .question-box { font-size: 12px; padding: 14px 20px; margin-top: 110px; }
-  .end-panel { padding: 28px 20px; }
-  .end-panel .start-button { width: 290px; }
-  .end-stats { gap: 16px; flex-direction: column; }
+  .question-box { font-size: 12px; padding: 14px 20px; margin-top: 176px; max-width: 94%; }
+  .end-panel { padding: 24px 18px; width: calc(100% - 24px); }
+  .ranking-badge { width: 82px; height: 82px; font-size: 36px; }
+  .replay-button { min-width: 260px; }
+  .end-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .lixao-scene { display: none; }
-  .fase-indicator { top: 8px; padding: 6px 14px 5px; }
+  .fase-indicator { top: 8px; padding: 8px 14px 7px; min-width: 220px; }
   .fase-nome { display: none; }
 }
 `;
