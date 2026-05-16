@@ -67,7 +67,11 @@ Fazendo o teste prático do jogo a ser desenvolvido
 
 (Onde e como a aplicação será hospedada?)
 
-Será hospedada no GitHub Pages - criaremos um repositório e definiremos a branch main como fonte e o site ficará disponível no usuário.github.io/repositorio
+Vamos hospedar no servidor do Raphael, que é um servidor próprio dele que ele fez colocation.
+
+OBS: Ela iria ser hospedada no GitHub Pages, porém nosso repositório não é elegivel para ser hospedado
+
+
 
 ## 5. Riscos e Mitigações
 
