@@ -72,6 +72,6 @@ Quais os softwares necessários que ajudariam a Instituição
 
 | # | Demanda | Prioridade | Como será atendida no software |
 | --- | --------- | :----------: | ------------------------------- |
-| 1 | | *(Alta/Média/Baixa)* | |
+| 1 | Demanda por uma aplicação que ensinaria virtudes para os alunos da Tarso com acessibilidade | Alta | Será atendida através de decisões simples no simulador de cidade, com mecanico de pontos e ranking final e com textos e imagens grandes e bem legiveis e visiveis |
 | 2 | | | |
 | 3 | | | |
