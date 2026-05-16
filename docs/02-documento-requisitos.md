@@ -60,7 +60,7 @@ Ajuda no desenvolvimento intelectual e no processo de tomada de decisões de for
 | Front-end | JS(React), CSS, HTML |
 | Back-end (se houver) | Python(Django), Talvez JS ou Java |
 | Banco de dados (se houver) | Acho que não vai precisar, mas se necessário vamos usar MySQL |
-| Hospedagem | GitHub Pages |
+| Hospedagem | Vamos hospedar no servidor do Raphael, que é um servidor próprio dele que ele fez colocation. |
 | Outras ferramentas |  |
 
 ## 7. Protótipo / Wireframes
