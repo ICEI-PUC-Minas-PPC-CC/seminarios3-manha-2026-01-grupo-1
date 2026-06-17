@@ -34,7 +34,7 @@ Quais os softwares necessários que ajudariam a Instituição
 
 | Campo | Informação |
 | ------- | ----------- |
-| Data | 28/05 |
+| Data | 28/05/2026 |
 | Forma de contato | Presencial - No Lab 5 na PUC Minas |
 | Participantes do grupo | Neste dia foi apenas o Sthefano |
 | Participantes da comunidade | Membros e representante da Tarso de Coimbra e também integrantes do projeto de extensão vozes e vidas(algo assim o nome do projeto de extensão) |
@@ -52,19 +52,17 @@ O software foi validado, faltou apenas colocar o HTTPS, pois o site estava hospe
 
 | Campo | Informação |
 | ------- | ----------- |
-| Data | |
-| Forma de contato | |
-| Participantes do grupo | |
-| Participantes da comunidade | |
-| Objetivo do contato | |
+| Data | 11/06/2026 |
+| Forma de contato | Presencial |
+| Participantes do grupo | Lucas, Adriano, Raphael, João Pedro e Tárek |
+| Participantes da comunidade | Membros e representante da Tarso de Coimbra e também integrantes do projeto de extensão vozes e vidas(algo assim o nome do projeto de extensão) |
+| Objetivo do contato | Fazer a entrega final do software |
 
 **Resumo do que foi tratado:**
+Foi feito a entrega do software presencialmente para a instituição Tarso de Coimbra.
 
 **Encaminhamentos:**
-
----
-
-(Copie o bloco acima para cada contato adicional.)
+O https já foi resolvido e colocamos o link oficial no repositório do github para a instituição ter acesso ao jogo.
 
 ---
 
