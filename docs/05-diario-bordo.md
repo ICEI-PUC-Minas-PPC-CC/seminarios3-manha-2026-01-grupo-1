@@ -14,7 +14,7 @@
 ### Etapa 01 — 03/02/26 a 12/03/26
 
 **O que foi feito:**
-Criamos o grupo no GitHub e no Whatsapp, utilizadmos Discord para as reuniões. Definimos o tema do sistema e iniciamos o contato com a comunidade.
+Criamos o grupo no GitHub e no Whatsapp, utilizamos Discord para as reuniões. Definimos o tema do sistema e iniciamos o contato com a comunidade.
 
 **Quem participou:**
 Adriano Naldoni, Tárek Salah, Lucas Murback, Sthefano Pompeo, João Pedro Tardelli, Raphael Leite
