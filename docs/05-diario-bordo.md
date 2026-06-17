@@ -27,7 +27,7 @@ Continuar o contato com a comunidade, levantar os requisitos e iniciar o planeja
 
 ---
 
-### Etapa 02 — 08/03/2026 a 21/03/2026
+### Etapa 02 — 13/03/2026 a 21/03/2026
 
 **O que foi feito:** 
 
