@@ -11,7 +11,7 @@
 
 ## Registro de Atividades
 
-### Semana 01 — ___/___/___ a ___/___/___
+### Etapa 01 — ___/___/___ a ___/___/___
 
 **O que foi feito:**
 *(Descrever as atividades realizadas nesta semana: desenvolvimento, reuniões, testes, etc.)*
@@ -27,7 +27,7 @@
 
 ---
 
-### Semana 02 — ___/___/___ a ___/___/___
+### Etapa 02 — ___/___/___ a ___/___/___
 
 **O que foi feito:**
 
@@ -39,7 +39,7 @@
 
 ---
 
-### Semana 03 — ___/___/___ a ___/___/___
+### Etapa 03 — ___/___/___ a ___/___/___
 
 **O que foi feito:**
 
