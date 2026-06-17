@@ -61,6 +61,7 @@ Continuar o contato com a comunidade, levantar os requisitos e iniciar o planeja
 **Local:**  PUC Minas Poços de Caldas
 **Horário:** _14:00__ às _15:00__  
 **Participantes do grupo presentes:**  Adriano Azevedo Naldoni,João Pedro Tardelli,Anicezio,Lucas Lopes Ronzelli Murback,Raphael Leite Emboaba,Sthefano Moura Pompeu,Tarek Villas Boas Salah.
+
 **Nº de participantes da comunidade:**10 participantes
 
 ### Descrição da entrega
