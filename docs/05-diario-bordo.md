@@ -17,7 +17,7 @@
 Criamos o grupo no GitHub, definimos o tema do sistema e iniciamos o contato com a comunidade.
 
 **Quem participou:**
-João Pedro Tardelli, Adriano Naldoni, Lucas Murback, Tarek, Sthefano, Raphael Leite
+Adriano Naldoni, Tárek Salah, Lucas Murback, Sthefano Pompeo, João Pedro Tardelli, Raphael Leite
 
 **Decisões técnicas tomadas:**
 Definimos a estrutura inicial do repositório, com pastas para docs, evidências, relatórios e código-fonte.
