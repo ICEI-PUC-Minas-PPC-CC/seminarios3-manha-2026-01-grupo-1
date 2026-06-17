@@ -57,20 +57,20 @@ Continuar o contato com a comunidade, levantar os requisitos e iniciar o planeja
 
 ## Registro da Entrega Presencial
 
-**Data:** ___/___/___  
-**Local:**  
-**Horário:** ___ às ___  
-**Participantes do grupo presentes:**  
-**Nº de participantes da comunidade:**
+**Data:** __11_/_06__/_2026__  
+**Local:**  PUC Minas Poços de Caldas
+**Horário:** _14:00__ às _15:00__  
+**Participantes do grupo presentes:**  Adriano Azevedo Naldoni,João Pedro Tardelli,Anicezio,Lucas Lopes Ronzelli Murback,Raphael Leite Emboaba,Sthefano Moura Pompeu,Tarek Villas Boas Salah.
+**Nº de participantes da comunidade:**10 participantes
 
 ### Descrição da entrega
 
-(Relatar como foi a entrega: demonstração do software, reação dos usuários, dúvidas que surgiram, etc.)
+Ao chegarmos, a equipe do Tarso de Coimbra já estava presente e realizando suas atividades. Solicitamos gentilmente um momento para apresentar nosso projeto e, em seguida, colocamos em seus computadores o jogo que desenvolvemos sobre gestão de cidades. Explicamos sua dinâmica, objetivos e funcionamento, permitindo que os participantes explorassem o jogo e tomassem suas próprias decisões para administrar a cidade virtual. Durante toda a atividade, prestamos suporte e esclarecemos dúvidas sempre que necessário, buscando auxiliá-los da melhor forma possível. Após todos concluírem a experiência, encerramos a atividade e agradecemos a participação e a atenção de todos.
 
 ### Feedback da comunidade
 
-(O que os usuários e responsáveis da comunidade acharam do software?)
+Após o término da atividade, os participantes que demonstraram maior engajamento optaram por jogar novamente, com o objetivo de explorar os limites e as funcionalidades do jogo. Além disso, diversos participantes relataram ter gostado da experiência e agradeceram pela oportunidade de participar da atividade. Ao conversarmos com a comunidade, também recebemos feedback positivo sobre a interface do jogo, que foi considerada agradável.
 
 ### Lições aprendidas
 
-(O que o grupo faria diferente no desenvolvimento? O que deu certo?)
+Ao final da experiência, acreditamos que grande parte do que construímos foi positiva e atendeu aos objetivos propostos. Os participantes demonstraram interesse e satisfação com a atividade, o que reforça os acertos realizados durante o desenvolvimento. No entanto, identificamos alguns aspectos que podem ser aprimorados em versões futuras, especialmente em relação à acessibilidade. Considerando as características e necessidades do público-alvo, ajustes nessa área poderiam tornar a experiência ainda mais inclusiva e satisfatória para todos os participantes.
