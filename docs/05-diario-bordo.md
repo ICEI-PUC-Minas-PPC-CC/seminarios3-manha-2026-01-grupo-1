@@ -29,7 +29,7 @@ Continuar o contato com a comunidade, levantar os requisitos e iniciar o planeja
 
 ### Etapa 02 — 13/03/2026 a 21/03/2026
 
-**O que foi feito:** Definimos que faríamos um jogo de escolhas sobre um prefeito cuidando de uma cidade, possuindo escolhas boas e ruins que determinariam o rumo do jogo. Problematizamos a escolha sensata do jogador, a índole dele e sua intuição de senso moral determinaria o rumo que a cidade dele tomaria, visando ajudar no raciocínio lógico, moral e ético, compreendendo o peso de suas decisões.
+**O que foi feito:** Definimos que faríamos um jogo de escolhas sobre um prefeito cuidando de uma cidade, possuindo escolhas boas e ruins que determinariam o rumo do jogo. Problematizamos o senso de escolha escolha do jogador. Sua índole e intuição moral determinariam o rumo da cidade, visando ajudar no raciocínio lógico, moral e ético, fazendo compreender o peso de suas decisões.
 
 **Quem participou:** Adriano Naldoni, Tárek Salah, Lucas Murback, Sthefano Pompeo, João Pedro Tardelli, Raphael Leite
 
