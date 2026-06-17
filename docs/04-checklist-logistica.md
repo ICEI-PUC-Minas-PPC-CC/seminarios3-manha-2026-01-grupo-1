@@ -1,8 +1,8 @@
 # 04- — Checklist de Preparação e Logística
 
-> **Aplicação:** *(preencher)*  
-> **Data prevista para entrega:** *(preencher)*  
-> **Local:** *(preencher)*
+> **Aplicação:** *(Software de simulação de cidade para ensinamento de virtudes)*  
+> **Data prevista para entrega:** *(11/06/2026)*  
+> **Local:** *(PUC Minas)*
 
 ---
 
