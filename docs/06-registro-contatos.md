@@ -71,5 +71,3 @@ O https já foi resolvido e colocamos o link oficial no repositório do github p
 | # | Demanda | Prioridade | Como será atendida no software |
 | --- | --------- | :----------: | ------------------------------- |
 | 1 | Demanda por uma aplicação que ensinaria virtudes para os alunos da Tarso com acessibilidade | Alta | Será atendida através de decisões simples no simulador de cidade, com mecanica de pontos e ranking final e com textos e imagens grandes e bem legiveis e visiveis |
-| 2 | | | |
-| 3 | | | |
