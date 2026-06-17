@@ -14,19 +14,15 @@
 ### Etapa 01 — 03/02/26 a 12/03/26
 
 **O que foi feito:**
-*(Descrever as atividades realizadas nesta semana: desenvolvimento, reuniões, testes, etc.)*
 Criamos o grupo no GitHub, definimos o tema do sistema e iniciamos o contato com a comunidade.
 
 **Quem participou:**
-*(Listar integrantes envolvidos.)*
 João Pedro Tardelli, Adriano Naldoni, Lucas Murback, Tarek, Sthefano, Raphael Leite
 
 **Decisões técnicas tomadas:**
-*(Alguma decisão relevante sobre tecnologia, escopo, design, etc.?)*
 Definimos a estrutura inicial do repositório, com pastas para docs, evidências, relatórios e código-fonte.
 
 **Próximos passos:**
-*(O que precisa ser feito na próxima semana?)*
 Continuar o contato com a comunidade, levantar os requisitos e iniciar o planejamento do protótipo.
 
 ---
