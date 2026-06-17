@@ -34,17 +34,17 @@ Quais os softwares necessários que ajudariam a Instituição
 
 | Campo | Informação |
 | ------- | ----------- |
-| Data | |
-| Forma de contato | *(Presencial / Online / E-mail / Telefone / WhatsApp)* |
-| Participantes do grupo | |
-| Participantes da comunidade | |
-| Objetivo do contato | |
+| Data | 28/05 |
+| Forma de contato | Presencial - No Lab 5 na PUC Minas |
+| Participantes do grupo | Neste dia foi apenas o Sthefano |
+| Participantes da comunidade | Membros e representante da Tarso de Coimbra e também integrantes do projeto de extensão vozes e vidas(algo assim o nome do projeto de extensão) |
+| Objetivo do contato | Validar se o software que estavámos fazendo estava atendendo os requisitos que a comunidade precisava e o que poderiamos melhorar no software para e entrega final |
 
 **Resumo do que foi tratado:**
-(Descrever o que foi discutido, decisões tomadas, demandas identificadas.)
+Foi tratado o que eu disse acima, validação e pontos de melhoria do software e também os alunos/integrantes da tarso de coimbra, puderam jogar o jogo para testar e falarem o que acharam. 
 
 **Encaminhamentos:**
-(O que ficou combinado para a próxima interação?)
+O software foi validado, faltou apenas colocar o HTTPS, pois o site estava hospedado e sendo acessado por HTTP. 
 
 ---
 
