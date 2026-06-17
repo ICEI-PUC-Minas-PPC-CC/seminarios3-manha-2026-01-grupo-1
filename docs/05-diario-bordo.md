@@ -27,9 +27,9 @@
 
 ---
 
-### Etapa 02 — ___/___/___ a ___/___/___
+### Etapa 02 — 08/03/2026 a 21/03/2026
 
-**O que foi feito:**
+**O que foi feito:** 
 
 **Quem participou:**
 
@@ -41,13 +41,13 @@
 
 ### Etapa 03 — 22/03/2026 a 16/05/2026
 
-**O que foi feito:**
+**O que foi feito:** foi desenvolvido o front-end e back-end do jogo "Salve a Cidade" em JavaScript com auxílio do Claude AI. Na etapa foram feitas as imagens do jogo (prefeito, cidade, visual de fundo da cidade, caixas de pergunta), a funcionalidade do jogo (duas perguntas relacionadas a o que o prefeito deve fazer para sua cidade, podendo ser uma escolha boa ou ruim influenciando em sua reputação e as funcionalidades das caixas de pergunta) e a fusão das duas partes.
 
-**Quem participou:**
+**Quem participou:** Adriano Naldoni, Tárek Salah, Lucas Murback, Sthefano Pompeo, João Pedro Tardelli, Raphael Leite
 
-**Decisões técnicas tomadas:**
+**Decisões técnicas tomadas:** Criação do código fonte elaborado com assistência de IA para programar e criar as imagens utilizadas
 
-**Próximos passos:**
+**Próximos passos:** Enviar o protótipo no GitHub e aguardar o dia da apresentação para o público.
 
 ---
 
