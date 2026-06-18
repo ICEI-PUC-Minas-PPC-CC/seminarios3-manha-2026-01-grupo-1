@@ -1,6 +1,7 @@
 # 05 — Diário de Bordo do Grupo
 
 > **Grupo:** Comp Studios - Adriano Azevedo Naldoni, João Pedro Tardelli Anicezio, Lucas Lopes Ronzelli Murback, Raphael Leite Emboaba, Sthefano Moura Pompeu, Tarek Villas Boas Salah
+
 > **Aplicação:** Um jogo em que você é o prefeito de uma cidade e tem que tomar decisões para melhorar a vida da população, ensinando virtudes de forma simples e divertida
 
 ---
