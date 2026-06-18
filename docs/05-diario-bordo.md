@@ -53,6 +53,19 @@ Continuar o contato com a comunidade, levantar os requisitos e iniciar o planeja
 
 *(Copie o bloco acima para cada semana de atividade ao longo do semestre.)*
 
+### Etapa 04 — 17/06/26 
+
+**O que foi feito:** Na Etapa 5, foi realizado o relatório de autoavaliação individual e coletiva do grupo, permitindo a reflexão sobre o desempenho dos integrantes.Por fim, o projeto do jogo foi apresentado à comunidade do Tarso, com o apoio da intérprete de Libras para garantir uma comunicação clara e acessível. Durante a atividade, foram coletados feedbacks dos participantes, que demonstraram interesse e satisfação com a experiência. O jogo proporcionou momentos de entretenimento e aprendizado, estimulando a participação e a resolução de desafios.
+
+**Quem participou:** Adriano Naldoni, Tárek Salah, Lucas Murback, Sthefano Pompeo, João Pedro Tardelli, Raphael Leite
+**Próximos passos:** Realizar a autoavaliação.
+
+
+### Etapa 05 — 13/06/26 
+
+**O que foi feito:** Na Etapa 5, foi realizado o relatório de autoavaliação individual e coletiva do grupo, permitindo a reflexão sobre o desempenho dos integrantes.
+**Quem participou:** Adriano Naldoni, Tárek Salah, Lucas Murback, Sthefano Pompeo, João Pedro Tardelli, Raphael Leite
+
 ---
 
 ## Registro da Entrega Presencial
