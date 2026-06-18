@@ -18,7 +18,7 @@
 Criamos o grupo no GitHub e no Whatsapp, utilizamos Discord para as reuniões. Definimos o tema do sistema e iniciamos o contato com a comunidade.
 
 **Quem participou:**
-Adriano Naldoni, Tárek Salah, Lucas Murback, Sthefano Pompeo, João Pedro Tardelli, Raphael Leite
+Adriano Naldoni, Tárek Salah, Lucas Murback, Sthefano Pompeu, João Pedro Tardelli, Raphael Leite
 
 **Decisões técnicas tomadas:**
 Definimos a estrutura inicial do repositório, com pastas para docs, evidências, relatórios e código-fonte.
@@ -32,7 +32,7 @@ Continuar o contato com a comunidade, levantar os requisitos e iniciar o planeja
 
 **O que foi feito:** Definimos que faríamos um jogo de escolhas sobre um prefeito cuidando de uma cidade, possuindo escolhas boas e ruins que determinariam o rumo do jogo. Problematizamos o senso de escolha escolha do jogador. Sua índole e intuição moral determinariam o rumo da cidade, visando ajudar no raciocínio lógico, moral e ético, fazendo compreender o peso de suas decisões.
 
-**Quem participou:** Adriano Naldoni, Tárek Salah, Lucas Murback, Sthefano Pompeo, João Pedro Tardelli, Raphael Leite
+**Quem participou:** Adriano Naldoni, Tárek Salah, Lucas Murback, Sthefano Pompeu, João Pedro Tardelli, Raphael Leite
 
 **Decisões técnicas tomadas:** Linguagem usada no futuro para programar o jogo, lógica do jogo e IA que nos auxiliaria a montar o programa.
 
@@ -44,7 +44,7 @@ Continuar o contato com a comunidade, levantar os requisitos e iniciar o planeja
 
 **O que foi feito:** foi desenvolvido o front-end e back-end do jogo "Salve a Cidade" em JavaScript com auxílio do Claude AI. Na etapa foram feitas as imagens do jogo (prefeito, cidade, visual de fundo da cidade, caixas de pergunta), a funcionalidade do jogo (duas perguntas relacionadas a o que o prefeito deve fazer para sua cidade, podendo ser uma escolha boa ou ruim influenciando em sua reputação e as funcionalidades das caixas de pergunta) e a fusão das duas partes.
 
-**Quem participou:** Adriano Naldoni, Tárek Salah, Lucas Murback, Sthefano Pompeo, João Pedro Tardelli, Raphael Leite
+**Quem participou:** Adriano Naldoni, Tárek Salah, Lucas Murback, Sthefano Pompeu, João Pedro Tardelli, Raphael Leite
 
 **Decisões técnicas tomadas:** Criação do código fonte elaborado com assistência de IA para programar e criar as imagens utilizadas
 
@@ -56,16 +56,16 @@ Continuar o contato com a comunidade, levantar os requisitos e iniciar o planeja
 
 ### Etapa 04 — 17/06/26 
 
-**O que foi feito:** Na Etapa 4, o projeto do jogo foi apresentado à comunidade do Tarso, com o apoio da intérprete de Libras para garantir uma comunicação clara e acessível. Durante a atividade, foram coletados feedbacks dos participantes, que demonstraram interesse e satisfação com a experiência. O jogo proporcionou momentos de entretenimento e aprendizado, estimulando a participação e a resolução de desafios.
+**O que foi feito:** Na Etapa 4, fizemos a entrega do jogo que desenvolvemos para a Tarso de Coimbra de forma presencial na Puc Minas, os participantes jogaram e aparentemente gostaram e se divertiram. 
 
-**Quem participou:** Adriano Naldoni, Tárek Salah, Lucas Murback, Sthefano Pompeo, João Pedro Tardelli, Raphael Leite
+**Quem participou:** Adriano Naldoni, Tárek Salah, Lucas Murback, Sthefano Pompeu, João Pedro Tardelli, Raphael Leite
 **Próximos passos:** Realizar a autoavaliação.
 
 
 ### Etapa 05 — 13/06/26 
 
 **O que foi feito:** Na Etapa 5, foi realizado o relatório de autoavaliação individual e coletiva do grupo, permitindo a reflexão sobre o desempenho dos integrantes.
-**Quem participou:** Adriano Naldoni, Tárek Salah, Lucas Murback, Sthefano Pompeo, João Pedro Tardelli, Raphael Leite
+**Quem participou:** Adriano Naldoni, Tárek Salah, Lucas Murback, Sthefano Pompeu, João Pedro Tardelli, Raphael Leite
 
 ---
 
@@ -74,7 +74,7 @@ Continuar o contato com a comunidade, levantar os requisitos e iniciar o planeja
 **Data:** __11_/_06__/_2026__  
 **Local:**  PUC Minas Poços de Caldas
 **Horário:** _14:00__ às _15:00__  
-**Participantes do grupo presentes:**  Adriano Azevedo Naldoni,João Pedro Tardelli,Anicezio,Lucas Lopes Ronzelli Murback,Raphael Leite Emboaba,Sthefano Moura Pompeu,Tarek Villas Boas Salah.
+**Participantes do grupo presentes:**  Adriano Azevedo Naldoni,João Pedro Tardelli Anicezio,Lucas Lopes Ronzelli Murback,Raphael Leite Emboaba,Sthefano Moura Pompeu,Tarek Villas Boas Salah.
 
 **Nº de participantes da comunidade:**10 participantes
 
